@@ -349,4 +349,16 @@ void SCSPDSP_Start(struct _SCSPDSP *DSP)
 	}
 	DSP->LastStep=i+1;
 
+printf("DSP last step = %u\n", i+1);
+
+#if 0
+	for(i=0; i<DSP->LastStep; i++)
+	{
+		UINT16 *IPtr=DSP->MPRO+i*4;
+		printf("%02X:%04X %04X %04X %04X\n", i, IPtr[0], IPtr[1], IPtr[2], IPtr[3]);
+	}
+#else
+	DisasmYmDSP(0, DSP->MPRO, DSP->LastStep, DSP->COEF, DSP->MADRS);
+#endif
+
 }

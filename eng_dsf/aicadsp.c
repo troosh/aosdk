@@ -348,5 +348,16 @@ void AICADSP_Start(struct _AICADSP *DSP)
 			break;
 	}
 	DSP->LastStep=i+1;
+printf("DSP last step = %u\n", i+1);
+
+#if 0
+	for(i=0; i<DSP->LastStep; i++)
+	{
+		UINT16 *IPtr=DSP->MPRO+i*8;
+		printf("%02X:%04X %04X %04X %04X\n", i, IPtr[0], IPtr[2], IPtr[4], IPtr[6]);
+	}
+#else
+	DisasmYmDSP(1, DSP->MPRO, DSP->LastStep, DSP->COEF, DSP->MADRS);
+#endif
 
 }

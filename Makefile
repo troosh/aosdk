@@ -57,6 +57,9 @@ LIBS += -ldsound -ldxguid
 LIBS += -lcomdlg32 -lgdi32 -lole32 -lpsapi -lshlwapi -lversion -lwininet
 endif
 
+# Yamaha DSP disassembler
+OBJS += disymdsp.o
+
 # DSF engine
 OBJS += eng_dsf/eng_dsf.o eng_dsf/dc_hw.o eng_dsf/aica.o eng_dsf/aicadsp.o eng_dsf/arm7.o eng_dsf/arm7i.o
 
